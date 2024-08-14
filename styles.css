@@ -32,11 +32,6 @@ h1, h2, h3 {
     color: #569CD6; 
 }
 
-h4 {
-      font-size: larger;
-    
-}
-
 a {
     color: #9CDCFE; 
     text-decoration: none;
@@ -55,6 +50,5 @@ footer {
 code, pre {
     font-family: 'Courier New', Courier, monospace;
     color: #D4D4D4; 
-    font-size: large;
-
+   
 }
