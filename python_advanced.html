@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Python Concepts</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1 style="text-align: center;">More Python Programming</h1>
+        <hr style="width: 60%;">
+        <p><a href="tutorial.html">Back to Main page</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Functions</h2>
+            <p>Functions are reusable blocks of code that perform a specific task. They help in organizing code and avoiding repetition.</p>
+
+            <h3>Defining and Calling Functions</h3>
+            <pre><code>
+# Define a function
+def greet(name):
+    return f"Hello, {name}!"
+
+# Call the function
+print(greet("Developer"))
+            </code></pre>
+
+            <p><strong>Explanation:</strong> The <code>greet</code> function takes a parameter <code>name</code> and returns a greeting string. Functions are defined using the <code>def</code> keyword.</p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Lists and Dictionaries</h2>
+            <p>Lists and dictionaries are essential data structures in Python for storing and managing collections of data.</p>
+
+            <h3>Working with Lists</h3>
+            <pre><code>
+# List of items
+fruits = ["apple", "banana", "cherry"]
+
+# Accessing list items
+print(fruits[0])  # Outputs: apple
+
+# Adding an item to the list
+fruits.append("date")
+print(fruits)  # Outputs: ['apple', 'banana', 'cherry', 'date']
+            </code></pre>
+
+            <h3>Working with Dictionaries</h3>
+            <pre><code>
+# Dictionary with key-value pairs
+person = {
+    "name": "Developer",
+    "age": 25,
+    "location": "Somewhere"
+}
+
+# Accessing dictionary items
+print(person["name"])  # Outputs: Developer
+
+# Adding a new key-value pair
+person["hobby"] = "coding"
+print(person)  # Outputs: {'name': 'Developer', 'age': 25, 'location': 'Somewhere', 'hobby': 'coding'}
+            </code></pre>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Classes and Objects</h2>
+            <p>Object-oriented programming (OOP) in Python allows you to define custom objects with attributes and methods.</p>
+
+            <h3>Defining a Class</h3>
+            <pre><code>
+# Define a class
+class GameDeveloper:
+    def __init__(self, name, language):
+        self.name = name
+        self.language = language
+
+    def introduce(self):
+        return f"My name is {self.name} and I develop games using {self.language}."
+
+# Create an object of the class
+dev = GameDeveloper("Developer", "Python")
+print(dev.introduce())  # Outputs: My name is Developer and I develop games using Python.
+            </code></pre>
+
+            <p><strong>Explanation:</strong> The <code>GameDeveloper</code> class has an initializer method <code>__init__</code> that sets up the object, and a method <code>introduce</code> that returns a formatted string.</p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Error Handling</h2>
+            <p>Error handling is crucial for building robust applications. Python provides try-except blocks to catch and manage exceptions.</p>
+
+            <h3>Try-Except Example</h3>
+            <pre><code>
+# Error handling with try-except
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+finally:
+    print("This block runs no matter what.")
+
+# Outputs:
+# Cannot divide by zero!
+# This block runs no matter what.
+            </code></pre>
+            <p><strong>Explanation:</strong> The <code>try</code> block contains code that might throw an exception. The <code>except</code> block catches specific exceptions, and the <code>finally</code> block executes regardless of an exception occurring.</p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>File Handling</h2>
+            <p>Python allows you to work with files to read from and write to them, which is essential for data processing.</p>
+
+            <h3>Reading and Writing Files</h3>
+            <pre><code>
+# Writing to a file
+with open("example.txt", "w") as file:
+    file.write("Hello, this is a test file.")
+
+# Reading from a file
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)  # Outputs: Hello, this is a test file.
+            </code></pre>
+
+            <p><strong>Explanation:</strong> The <code>with</code> statement is used to open a file. It ensures that the file is properly closed after its block of code has been executed.</p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Additional Python Resources</h2>
+            <p>Here are some additional resources to further your understanding of Python:</p>
+            <ul>
+                <li><a href="https://www.learnpython.org/" target="_blank">Learn Python</a> - Interactive Python tutorials.</li>
+                <li><a href="https://docs.python.org/3/tutorial/" target="_blank">Python Official Documentation</a> - Comprehensive Python documentation.</li>
+                <li><a href="https://www.codecademy.com/learn/learn-python-3" target="_blank">Codecademy Python Course</a> - Interactive Python course with exercises.</li>
+                <li><a href="https://www.realpython.com/" target="_blank">Real Python</a> - Tutorials and articles on various Python topics.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <br>
+
+    <footer>
+        <p>&copy; 2024 POKUNZ. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
