@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Java Programming</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1 style="text-align: center;">More Java Programming</h1>
+        <hr style="width: 60%;">
+        <p><a href="tutorial.html">Back to Main page</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Object-Oriented Programming (OOP)</h2>
+            <p>Java is an object-oriented programming language. This means it uses objects and classes to structure code and model real-world entities. Here are some key concepts:</p>
+            
+            <h3>Classes and Objects</h3>
+            <p>A class is a blueprint for creating objects. An object is an instance of a class. Here’s how you define a class and create objects:</p>
+            <pre><code>public class Car {
+    // Attributes
+    private String model;
+    private int year;
+    
+    // Constructor
+    public Car(String model, int year) {
+        this.model = model;
+        this.year = year;
+    }
+    
+    // Method
+    public void displayInfo() {
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+    }
+    
+    public static void main(String[] args) {
+        // Creating objects
+        Car myCar = new Car("Toyota Corolla", 2020);
+        myCar.displayInfo();
+    }
+}</code></pre>
+            
+            <h3>Inheritance</h3>
+            <p>Inheritance allows one class to inherit fields and methods from another. This promotes code reusability. Here’s an example:</p>
+            <pre><code>public class Vehicle {
+    protected String brand;
+    
+    public Vehicle(String brand) {
+        this.brand = brand;
+    }
+    
+    public void honk() {
+        System.out.println("Beep beep!");
+    }
+}
+
+public class Bike extends Vehicle {
+    private boolean hasPedals;
+    
+    public Bike(String brand, boolean hasPedals) {
+        super(brand);
+        this.hasPedals = hasPedals;
+    }
+    
+    public void displayInfo() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Has pedals: " + hasPedals);
+    }
+    
+    public static void main(String[] args) {
+        Bike myBike = new Bike("Giant", true);
+        myBike.honk();
+        myBike.displayInfo();
+    }
+}</code></pre>
+            
+            <h3>Polymorphism</h3>
+            <p>Polymorphism allows objects to be treated as instances of their parent class rather than their actual class. It can be achieved through method overriding:</p>
+            <pre><code>public class Animal {
+    public void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+public class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myDog = new Dog();
+        myDog.makeSound(); // Outputs: Dog barks
+    }
+}</code></pre>
+            
+            <h3>Abstraction</h3>
+            <p>Abstraction is the concept of hiding the complex implementation details and showing only the necessary features of an object. It’s achieved using abstract classes and interfaces:</p>
+            <pre><code>abstract class Animal {
+    abstract void makeSound();
+    
+    public void sleep() {
+        System.out.println("Sleeping...");
+    }
+}
+
+public class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Meow");
+    }
+    
+    public static void main(String[] args) {
+        Cat myCat = new Cat();
+        myCat.makeSound(); // Outputs: Meow
+        myCat.sleep();     // Outputs: Sleeping...
+    }
+}</code></pre>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Exception Handling</h2>
+            <p>Exception handling in Java helps manage errors and exceptional conditions gracefully without crashing the program. Java provides a robust exception handling framework with <code>try</code>, <code>catch</code>, <code>finally</code>, and <code>throw</code> keywords:</p>
+            
+            <h3>Try-Catch Block</h3>
+            <p>Use a <code>try</code> block to wrap code that might throw an exception and a <code>catch</code> block to handle the exception:</p>
+            <pre><code>public class ExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0; // This will throw ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}</code></pre>
+            
+            <h3>Finally Block</h3>
+            <p>The <code>finally</code> block is used for code that must execute regardless of whether an exception was thrown or not:</p>
+            <pre><code>public class FinallyExample {
+    public static void main(String[] args) {
+        try {
+            int[] numbers = new int[5];
+            numbers[10] = 25; // This will throw ArrayIndexOutOfBoundsException
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            System.out.println("This block always executes.");
+        }
+    }
+}</code></pre>
+            
+            <h3>Throw and Throws</h3>
+            <p>Use the <code>throw</code> keyword to explicitly throw an exception and <code>throws</code> to declare that a method might throw an exception:</p>
+            <pre><code>public class ThrowExample {
+    public static void checkAge(int age) {
+        if (age < 18) {
+            throw new IllegalArgumentException("Age must be 18 or older");
+        }
+    }
+    
+    public static void main(String[] args) {
+        try {
+            checkAge(15);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught exception: " + e.getMessage());
+        }
+    }
+}</code></pre>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>File I/O</h2>
+            <p>Java provides extensive support for file I/O (Input/Output) operations. You can read from and write to files using classes from the <code>java.io</code> package:</p>
+            
+            <h3>Reading from a File</h3>
+            <p>Use the <code>BufferedReader</code> class to read text from a file:</p>
+            <pre><code>import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class FileReadExample {
+    public static void main(String[] args) {
+        String filePath = "example.txt";
+        
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        }
+    }
+}</code></pre>
+            
+            <h3>Writing to a File</h3>
+            <p>Use the <code>BufferedWriter</code> class to write text to a file:</p>
+            <pre><code>import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileWriteExample {
+    public static void main(String[] args) {
+        String filePath = "output.txt";
+        
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write("Hello, World!");
+            writer.newLine();
+            writer.write("This is a second line.");
+        } catch (IOException e) {
+            System.out.println("Error writing to file: " + e.getMessage());
+        }
+    }
+}</code></pre>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Additional Resources</h2>
+            <p>To further enhance your Java programming skills, here are some additional resources:</p>
+            <ul>
+                <li><a href="https://docs.oracle.com/javase/tutorial/" target="_blank">Oracle Java Tutorials</a> - Official tutorials from Oracle that cover a wide range of Java topics, including basics, advanced features, and best practices.</li>
+                <li><a href="https://www.geeksforgeeks.org/java/" target="_blank">GeeksforGeeks Java Programming</a> - A comprehensive collection of articles, coding examples, and problems to practice Java programming, suitable for learners at all levels.</li>
+                <li><a href="https://www.w3schools.com/java/" target="_blank">W3Schools Java Tutorial</a> - An easy-to-follow guide for Java programming that includes interactive examples and exercises for a hands-on learning experience.</li>
+                <li><a href="https://www.codecademy.com/learn/learn-java" target="_blank">Codecademy Learn Java</a> - An interactive course that provides step-by-step lessons and exercises to build your Java skills through practical coding challenges.</li>
+            </ul>
+        </section>
+        
+    </main>
+
+    <br>
+
+    <footer>
+        <p>&copy; 2024 POKUNZ. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
