@@ -32,6 +32,11 @@ h1, h2, h3 {
     color: #569CD6; 
 }
 
+h4 {
+      font-size: larger;
+    
+}
+
 a {
     color: #9CDCFE; 
     text-decoration: none;
